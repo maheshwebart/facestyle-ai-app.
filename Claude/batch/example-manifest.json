@@ -1,0 +1,28 @@
+[
+	{
+		"compositionId": "TitleCard",
+		"outputFile": "out/batch/title-01.mp4",
+		"props": {
+			"title": "Video One",
+			"subtitle": "First in the batch"
+		}
+	},
+	{
+		"compositionId": "TitleCard",
+		"outputFile": "out/batch/title-02.mp4",
+		"props": {
+			"title": "Video Two",
+			"subtitle": "Second in the batch"
+		}
+	},
+	{
+		"compositionId": "BrandWatermark",
+		"outputFile": "out/batch/watermark-01.mov",
+		"transparent": true,
+		"durationInFrames": 150,
+		"props": {
+			"wordmarkPrimary": "facestyle",
+			"wordmarkAccent": ".fun"
+		}
+	}
+]

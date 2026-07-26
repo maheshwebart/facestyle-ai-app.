@@ -1,0 +1,101 @@
+[
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4456.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4456.mp4",
+			"endCardHeadlineLine1": "Preview your hairstyle",
+			"endCardHeadlineLine2": "first."
+		}
+	},
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4491.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4491.mp4",
+			"endCardHeadlineLine1": "Find your perfect",
+			"endCardHeadlineLine2": "look."
+		}
+	},
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4512.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4512.mp4",
+			"endCardHeadlineLine1": "Your AI style",
+			"endCardHeadlineLine2": "makeover."
+		}
+	},
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4536.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4536.mp4",
+			"endCardHeadlineLine1": "New hairstyle, zero",
+			"endCardHeadlineLine2": "risk."
+		}
+	},
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4539.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4539.mp4",
+			"endCardHeadlineLine1": "Try before you",
+			"endCardHeadlineLine2": "cut."
+		}
+	},
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4567.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4567.mp4",
+			"endCardHeadlineLine1": "Discover your best",
+			"endCardHeadlineLine2": "style."
+		}
+	},
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4581.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4581.mp4",
+			"endCardHeadlineLine1": "Your next look",
+			"endCardHeadlineLine2": "awaits."
+		}
+	},
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4589.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4589.mp4",
+			"endCardHeadlineLine1": "Instantly see your",
+			"endCardHeadlineLine2": "makeover."
+		}
+	},
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4610.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4610.mp4",
+			"endCardHeadlineLine1": "Change your look",
+			"endCardHeadlineLine2": "today."
+		}
+	},
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4625.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4625.mp4",
+			"endCardHeadlineLine1": "See yourself",
+			"endCardHeadlineLine2": "transformed."
+		}
+	},
+	{
+		"compositionId": "SocialClip",
+		"outputFile": "out/social/clip-4631.mp4",
+		"props": {
+			"videoSrc": "raw/clip-4631.mp4",
+			"endCardHeadlineLine1": "Your dream hairstyle",
+			"endCardHeadlineLine2": "awaits."
+		}
+	}
+]

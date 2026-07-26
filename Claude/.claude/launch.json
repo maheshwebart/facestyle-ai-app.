@@ -1,0 +1,22 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "facestylecam-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "D:/AI-apps-Development/FACE-STYLE-NEW-CAM/facestyle-cam-ai/facestylecam",
+        "run",
+        "dev"
+      ],
+      "port": 3000
+    },
+    {
+      "name": "remotion-studio",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "studio", "--", "--port=3001"],
+      "port": 3001
+    }
+  ]
+}
