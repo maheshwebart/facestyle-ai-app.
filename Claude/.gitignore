@@ -2,3 +2,9 @@ node_modules
 out
 .DS_Store
 *.log
+
+# Raw source footage — kept local only, never pushed.
+public/raw/
+
+# API keys — never commit.
+.env
