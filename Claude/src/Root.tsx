@@ -495,6 +495,135 @@ export const RemotionRoot: React.FC = () => {
 					accentColor: BRAND.amber,
 				}}
 			/>
+			{/* Batch 2: 6 more B2C feature-benefit reels, same FeatureBenefitReel
+			    format as batch 1 above. See
+			    docs/superpowers/plans/2026-07-31-feature-benefit-reels-2.md for the
+			    duration math (bodyDurationInFrames = ceil(voiceSeconds*30) + 45,
+			    total = body + 90). */}
+			<Composition
+				id="Benefit2FaceShapeMatched"
+				component={FeatureBenefitReel}
+				durationInFrames={485}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Face-Shape Matched Styling',
+					subline: 'Cuts that actually suit you',
+					voiceoverSrc: 'audio/feature-benefit-reels-2/benefit2-1-face-shape-matched.mp3',
+					photo1Src: 'images/feature-benefit-reels-2/benefit2-1-photo-1.png',
+					photo1Caption: 'We read your face shape first',
+					photo2Src: 'images/feature-benefit-reels-2/benefit2-1-photo-2.png',
+					photo2Caption: 'Then suggest what actually suits you',
+					bodyDurationInFrames: 395,
+				}}
+			/>
+			<Composition
+				id="Benefit2BeardStyling"
+				component={FeatureBenefitReel}
+				durationInFrames={520}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Beard Styling',
+					subline: 'See it before the barber chair',
+					voiceoverSrc: 'audio/feature-benefit-reels-2/benefit2-2-beard-styling.mp3',
+					photo1Src: 'images/feature-benefit-reels-2/benefit2-2-photo-1.png',
+					photo1Caption: 'Start with your natural beard',
+					photo2Src: 'images/feature-benefit-reels-2/benefit2-2-photo-2.png',
+					photo2Caption: 'Preview the fade and line-up',
+					bodyDurationInFrames: 430,
+					accentColor: BRAND.amber,
+				}}
+			/>
+			<Composition
+				id="Benefit2MakeupTryOn"
+				component={FeatureBenefitReel}
+				durationInFrames={505}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Makeup Try-On',
+					subline: 'From everyday to full glam',
+					voiceoverSrc: 'audio/feature-benefit-reels-2/benefit2-3-makeup-tryon.mp3',
+					photo1Src: 'images/feature-benefit-reels-2/benefit2-3-photo-1.png',
+					photo1Caption: 'Start bare-faced',
+					photo2Src: 'images/feature-benefit-reels-2/benefit2-3-photo-2.png',
+					photo2Caption: 'Preview glam makeup instantly',
+					bodyDurationInFrames: 415,
+					accentColor: BRAND.purple,
+				}}
+			/>
+			<Composition
+				id="Benefit2AnyDevice"
+				component={FeatureBenefitReel}
+				durationInFrames={524}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Works Anywhere, Any Device',
+					subline: 'No app to install',
+					voiceoverSrc: 'audio/feature-benefit-reels-2/benefit2-4-any-device.mp3',
+					photo1Src: 'images/feature-benefit-reels-2/benefit2-4-photo-1.png',
+					photo1Caption: 'Open it on your phone',
+					photo2Src: 'images/feature-benefit-reels-2/benefit2-4-photo-2.png',
+					photo2Caption: 'Or your laptop, anywhere',
+					bodyDurationInFrames: 434,
+				}}
+			/>
+			<Composition
+				id="Benefit2ZeroDecisionFatigue"
+				component={FeatureBenefitReel}
+				durationInFrames={527}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Zero Decision Fatigue',
+					subline: 'Curated picks made for you',
+					voiceoverSrc: 'audio/feature-benefit-reels-2/benefit2-5-zero-decision-fatigue.mp3',
+					photo1Src: 'images/feature-benefit-reels-2/benefit2-5-photo-1.png',
+					photo1Caption: 'Skip the endless scroll',
+					photo2Src: 'images/feature-benefit-reels-2/benefit2-5-photo-2.png',
+					photo2Caption: 'Love the result, faster',
+					bodyDurationInFrames: 437,
+					accentColor: BRAND.amber,
+				}}
+			/>
+			<Composition
+				id="Benefit2WalkInKnowing"
+				component={FeatureBenefitReel}
+				durationInFrames={432}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Walk In Knowing',
+					subline: 'See your salon look first',
+					voiceoverSrc: 'audio/feature-benefit-reels-2/benefit2-6-walk-in-knowing.mp3',
+					photo1Src: 'images/feature-benefit-reels-2/benefit2-6-photo-1.png',
+					photo1Caption: 'Preview your exact look',
+					photo2Src: 'images/feature-benefit-reels-2/benefit2-6-photo-2.png',
+					photo2Caption: 'Walk in already knowing',
+					bodyDurationInFrames: 342,
+					accentColor: BRAND.purple,
+				}}
+			/>
 		</>
 	);
 };
