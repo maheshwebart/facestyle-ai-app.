@@ -47,22 +47,17 @@ export const PinterestPin: React.FC<z.infer<typeof pinterestPinSchema>> = ({
 						'linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.75) 100%)',
 				}}
 			/>
-			<AbsoluteFill
+			<Img
+				src={staticFile('brand/facestylefun-icon.png')}
 				style={{
-					alignItems: 'center',
-					padding: '48px 44px 64px',
-					justifyContent: 'flex-start',
+					position: 'absolute',
+					top: 44,
+					left: 44,
+					width: 72,
+					height: 72,
+					filter: `drop-shadow(0 0 18px ${accentColor}88)`,
 				}}
-			>
-				<Img
-					src={staticFile('brand/facestylefun-icon.png')}
-					style={{
-						width: 72,
-						height: 72,
-						filter: `drop-shadow(0 0 18px ${accentColor}88)`,
-					}}
-				/>
-			</AbsoluteFill>
+			/>
 			<AbsoluteFill
 				style={{
 					alignItems: 'center',
