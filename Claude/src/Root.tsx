@@ -55,6 +55,11 @@ import {
 	featureBenefitReelDefaultProps,
 	featureBenefitReelSchema,
 } from './compositions/FeatureBenefitReel';
+import {
+	PinterestPin,
+	pinterestPinDefaultProps,
+	pinterestPinSchema,
+} from './compositions/PinterestPin';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -621,6 +626,90 @@ export const RemotionRoot: React.FC = () => {
 					photo2Src: 'images/feature-benefit-reels-2/benefit2-6-photo-2.png',
 					photo2Caption: 'Walk in already knowing',
 					bodyDurationInFrames: 342,
+					accentColor: BRAND.purple,
+				}}
+			/>
+			{/* Static 2:3 Pinterest pin images (photo + text overlay), one per
+			    batch-2 video, replacing video pins that Pinterest's spam filter
+			    blocked when hosted on raw.githubusercontent.com. Rendered via
+			    `remotion still`, not `remotion render`. */}
+			<Composition
+				id="PinBeardStyling"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-2/benefit2-2-photo-2.png',
+					headline: 'Beard Styling',
+					subline: 'See it before the barber chair',
+					accentColor: BRAND.amber,
+				}}
+			/>
+			<Composition
+				id="PinMakeupTryOn"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-2/benefit2-3-photo-2.png',
+					headline: 'Makeup Try-On',
+					subline: 'From everyday to full glam',
+					accentColor: BRAND.purple,
+				}}
+			/>
+			<Composition
+				id="PinAnyDevice"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-2/benefit2-4-photo-2.png',
+					headline: 'Works Anywhere',
+					subline: 'No app to install',
+					accentColor: BRAND.cyan,
+				}}
+			/>
+			<Composition
+				id="PinZeroDecisionFatigue"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-2/benefit2-5-photo-2.png',
+					headline: 'Zero Decision Fatigue',
+					subline: 'Curated picks made for you',
+					accentColor: BRAND.amber,
+				}}
+			/>
+			<Composition
+				id="PinWalkInKnowing"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-2/benefit2-6-photo-2.png',
+					headline: 'Walk In Knowing',
+					subline: 'See your salon look first',
 					accentColor: BRAND.purple,
 				}}
 			/>
