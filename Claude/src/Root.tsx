@@ -698,6 +698,22 @@ export const RemotionRoot: React.FC = () => {
 				}}
 			/>
 			<Composition
+				id="PinFaceShapeMatched"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-2/benefit2-1-photo-2.png',
+					headline: 'Face-Shape Matched',
+					subline: 'Cuts that actually suit you',
+					accentColor: BRAND.cyan,
+				}}
+			/>
+			<Composition
 				id="PinWalkInKnowing"
 				component={PinterestPin}
 				durationInFrames={1}
