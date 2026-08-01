@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "premiere-pro": {
+      "command": "node",
+      "args": [
+        "C:\\Users\\SRIMA\\AppData\\Roaming\\npm\\node_modules\\premiere-pro-mcp\\dist\\index.js"
+      ]
+    }
+  }
+}

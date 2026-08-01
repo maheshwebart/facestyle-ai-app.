@@ -1,0 +1,28 @@
+{
+  "name": "motion-graphics",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render",
+    "still": "remotion still",
+    "upgrade": "remotion upgrade",
+    "batch-render": "node scripts/batch-render.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.499",
+    "@remotion/google-fonts": "4.0.499",
+    "@remotion/media": "4.0.499",
+    "@remotion/zod-types": "4.0.499",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.499",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@remotion/bundler": "4.0.499",
+    "@remotion/renderer": "4.0.499",
+    "@types/react": "19.0.0",
+    "typescript": "5.8.2"
+  }
+}
