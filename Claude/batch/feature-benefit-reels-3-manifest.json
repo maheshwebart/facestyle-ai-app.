@@ -1,0 +1,62 @@
+[
+	{
+		"compositionId": "Benefit3HairColour",
+		"outputFile": "out/promotional-3/hair-colour.mp4",
+		"concurrency": 2
+	},
+	{
+		"compositionId": "Benefit3BigChop",
+		"outputFile": "out/promotional-3/big-chop.mp4",
+		"concurrency": 2
+	},
+	{
+		"compositionId": "Benefit3Bangs",
+		"outputFile": "out/promotional-3/bangs.mp4",
+		"concurrency": 2
+	},
+	{
+		"compositionId": "Benefit3WeddingLook",
+		"outputFile": "out/promotional-3/wedding-look.mp4",
+		"concurrency": 2
+	},
+	{
+		"compositionId": "Benefit3HairLength",
+		"outputFile": "out/promotional-3/hair-length.mp4",
+		"concurrency": 2
+	},
+	{
+		"compositionId": "Benefit3FriendsVote",
+		"outputFile": "out/promotional-3/friends-vote.mp4",
+		"concurrency": 2
+	},
+	{
+		"compositionId": "Pin3HairColour",
+		"outputFile": "out/promotional-3/pins/hair-colour-pin.png",
+		"still": true
+	},
+	{
+		"compositionId": "Pin3BigChop",
+		"outputFile": "out/promotional-3/pins/big-chop-pin.png",
+		"still": true
+	},
+	{
+		"compositionId": "Pin3Bangs",
+		"outputFile": "out/promotional-3/pins/bangs-pin.png",
+		"still": true
+	},
+	{
+		"compositionId": "Pin3WeddingLook",
+		"outputFile": "out/promotional-3/pins/wedding-look-pin.png",
+		"still": true
+	},
+	{
+		"compositionId": "Pin3HairLength",
+		"outputFile": "out/promotional-3/pins/hair-length-pin.png",
+		"still": true
+	},
+	{
+		"compositionId": "Pin3FriendsVote",
+		"outputFile": "out/promotional-3/pins/friends-vote-pin.png",
+		"still": true
+	}
+]

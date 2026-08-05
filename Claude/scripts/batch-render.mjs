@@ -14,13 +14,17 @@
 //     "outputFile": "out/batch/video-1.mov",
 //     "props": { "wordmark": "facestyle.fun" },
 //     "durationInFrames": 450,      // optional: override the frame count
-//     "transparent": true           // optional: render with alpha (ProRes 4444)
+//     "transparent": true,          // optional: render with alpha (ProRes 4444)
+//     "still": true,                // optional: render a single frame (PNG) instead
+//     "frame": 0,                   // optional: which frame, for still jobs
+//     "concurrency": 2              // optional: cap parallel workers on weak machines
 //   }
 // ]
 
 import {bundle} from '@remotion/bundler';
 import {
 	renderMedia,
+	renderStill,
 	selectComposition,
 	ensureBrowser,
 } from '@remotion/renderer';
@@ -72,6 +76,20 @@ async function main() {
 			const outputLocation = path.resolve(projectRoot, job.outputFile);
 			await fs.mkdir(path.dirname(outputLocation), {recursive: true});
 
+			if (job.still) {
+				await renderStill({
+					composition,
+					serveUrl: bundleLocation,
+					output: outputLocation,
+					frame: job.frame ?? 0,
+					inputProps: job.props ?? {},
+				});
+
+				console.log(`${label} — done`);
+				succeeded += 1;
+				continue;
+			}
+
 			await renderMedia({
 				composition: {
 					...composition,
@@ -86,6 +104,7 @@ async function main() {
 				crf: job.transparent ? undefined : 18,
 				outputLocation,
 				inputProps: job.props ?? {},
+				concurrency: job.concurrency,
 			});
 
 			console.log(`${label} — done`);
