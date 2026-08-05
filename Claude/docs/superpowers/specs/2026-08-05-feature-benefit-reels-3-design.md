@@ -94,8 +94,23 @@ Output: `public/images/feature-benefit-reels-3/benefit3-{1..6}-photo-{1,2}.png`
 
 Every prompt keeps the batch-1/2 house style: photorealistic, young adult, plain
 background, soft natural light, vertical portrait, `no text, no logos`. Within each pair,
-photo 1 is the "before" state and photo 2 is the result — same subject description so the
-pair reads as one person.
+photo 1 is the "before" state and photo 2 is the result.
+
+**Face continuity (changed during implementation).** Generating both photos of a pair with
+independent `text_to_image` calls produces two different people — the trait batches 1 and 2
+already shipped with. Batch 3 leans harder on before/after, so photo 2 of reels 1–5 is
+instead produced with `image_to_image`, feeding that reel's own photo 1 in as `image_1`.
+Reel 6 keeps two distinct images by design (one person, then a group of friends).
+
+Model notes from the actual run, worth reusing next time:
+
+- `kling-image-o1` (1 credit) preserves identity well and handled colour, cut, bridal
+  restyle and length changes — but only after prompts pinned the framing (`plain white
+  t-shirt, shoulders up`) and, for colour, ruled out the failure mode explicitly (`not
+  orange, not neon`). Its first pass produced neon-orange hair and chest-level crops.
+- `kling-image-o1` twice refused to add a fringe, returning the reference face unchanged.
+  `gemini-3-pro-image` did it correctly on the first try — but costs **20 credits**, not 1.
+  Check a model's price before reaching for it.
 
 | id | prompt |
 |----|--------|
