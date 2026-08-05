@@ -60,6 +60,10 @@ function buildPosts(slug, date, caption) {
 	const videoUrl = `${MEDIA_BASE}/${slug}.mp4`;
 	const pinUrl = `${MEDIA_BASE}/pins/${slug}-pin.png`;
 
+	// Each network takes its own metadata block. Notably YouTube and Pinterest
+	// have real title fields, so the title is not jammed into the body text.
+	// isAiGenerated is set truthfully — the model photos in these reels are
+	// AI-generated, and the platforms expect that to be disclosed.
 	return [
 		{
 			label: `${slug} → Instagram Reel`,
@@ -67,55 +71,94 @@ function buildPosts(slug, date, caption) {
 			dueAt,
 			text: `${caption.description}\n\n${caption.tags}`,
 			asset: {video: {url: videoUrl}},
+			metadata: {
+				instagram: {
+					type: 'reel',
+					shouldShareToFeed: true,
+					isAiGenerated: true,
+				},
+			},
 		},
 		{
 			label: `${slug} → YouTube Short`,
 			channelId: CHANNELS.youtube,
 			dueAt,
-			text: `${caption.title}\n\n${caption.description}`,
+			text: caption.description,
 			asset: {video: {url: videoUrl}},
+			metadata: {
+				youtube: {
+					title: caption.title,
+					privacy: 'public',
+					madeForKids: false,
+					notifySubscribers: true,
+					isAiGenerated: true,
+				},
+			},
 		},
 		{
 			label: `${slug} → Pinterest pin`,
 			channelId: CHANNELS.pinterest,
 			dueAt,
-			text: `${caption.title}\n\n${caption.description}`,
+			text: caption.description,
 			asset: {image: {url: pinUrl}},
+			metadata: {
+				pinterest: {
+					title: caption.title,
+					url: 'https://facestyle.fun',
+				},
+			},
 		},
 	];
 }
 
-async function createPost(token, post) {
-	const mutation = `
-		mutation CreatePost($input: PostCreateInput!) {
-			createPost(input: $input) {
-				... on PostActionSuccess { post { id dueAt } }
-				... on MutationError { message }
-			}
-		}`;
+// Schema-verified against the live API by introspection — the input type is
+// CreatePostInput (not PostCreateInput), and needsApproval is required.
+const MUTATION = `
+	mutation CreatePost($input: CreatePostInput!) {
+		createPost(input: $input) {
+			... on PostActionSuccess { post { id dueAt } }
+			... on MutationError { message }
+		}
+	}`;
 
-	const response = await fetch(API, {
-		method: 'POST',
-		headers: {
-			Authorization: `Bearer ${token}`,
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({
-			query: mutation,
-			variables: {
-				input: {
-					text: post.text,
-					channelId: post.channelId,
-					schedulingType: 'automatic',
-					mode: 'customScheduled',
-					dueAt: post.dueAt,
-					assets: [post.asset],
+// api.buffer.com intermittently refuses connections from this machine, so every
+// call gets a few attempts with backoff rather than failing the whole run.
+async function postWithRetry(token, variables, attempts = 4) {
+	let lastError;
+	for (let i = 0; i < attempts; i += 1) {
+		try {
+			const response = await fetch(API, {
+				method: 'POST',
+				headers: {
+					Authorization: `Bearer ${token}`,
+					'Content-Type': 'application/json',
 				},
-			},
-		}),
+				body: JSON.stringify({query: MUTATION, variables}),
+				signal: AbortSignal.timeout(45000),
+			});
+			return await response.json();
+		} catch (err) {
+			lastError = err;
+			await new Promise((r) => setTimeout(r, 2000 * (i + 1)));
+		}
+	}
+	throw new Error(`network failed after ${attempts} attempts: ${lastError?.message}`);
+}
+
+async function createPost(token, post) {
+	const body = await postWithRetry(token, {
+		input: {
+			text: post.text,
+			channelId: post.channelId,
+			schedulingType: 'automatic',
+			mode: 'customScheduled',
+			needsApproval: false,
+			dueAt: post.dueAt,
+			assets: [post.asset],
+			metadata: post.metadata,
+		},
 	});
 
-	const body = await response.json();
 	if (body.errors) {
 		throw new Error(JSON.stringify(body.errors));
 	}
@@ -128,6 +171,13 @@ async function createPost(token, post) {
 
 async function main() {
 	const execute = process.argv.includes('--execute');
+	// --limit N sends only the first N posts, so the schema can be validated on
+	// one real post before committing the whole batch to the queue.
+	const limitArg = process.argv.find((a) => a.startsWith('--limit='));
+	const limit = limitArg ? Number(limitArg.split('=')[1]) : Infinity;
+	// --skip N resumes after a partial run without duplicating what already landed.
+	const skipArg = process.argv.find((a) => a.startsWith('--skip='));
+	const skip = skipArg ? Number(skipArg.split('=')[1]) : 0;
 	const token = process.env.BUFFER_ACCESS_TOKEN;
 	if (!token) {
 		throw new Error(
@@ -135,14 +185,16 @@ async function main() {
 		);
 	}
 
-	const all = [];
+	const built = [];
 	for (const {slug, date} of SLOTS) {
 		const caption = await readCaption(slug);
-		all.push(...buildPosts(slug, date, caption));
+		built.push(...buildPosts(slug, date, caption));
 	}
+	const all = built.slice(skip, skip === 0 ? limit : skip + limit);
 
 	console.log(
-		`${execute ? 'EXECUTING' : 'DRY RUN'} — ${all.length} posts across ${SLOTS.length} slots\n`,
+		`${execute ? 'EXECUTING' : 'DRY RUN'} — ${all.length} of ${built.length} posts` +
+			`${skip ? ` (skipping first ${skip})` : ''}\n`,
 	);
 
 	let ok = 0;
