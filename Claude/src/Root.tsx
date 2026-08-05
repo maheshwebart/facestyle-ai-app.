@@ -629,6 +629,138 @@ export const RemotionRoot: React.FC = () => {
 					accentColor: BRAND.purple,
 				}}
 			/>
+			{/* Batch 3: 6 more B2C feature-benefit reels, same FeatureBenefitReel
+			    format as batches 1 and 2. Targets the hesitation moments the
+			    earlier batches did not cover. See
+			    docs/superpowers/specs/2026-08-05-feature-benefit-reels-3-design.md.
+			    Duration math: bodyDurationInFrames = ceil(voiceSeconds*30) + 45,
+			    total = body + 90. */}
+			<Composition
+				id="Benefit3HairColour"
+				component={FeatureBenefitReel}
+				durationInFrames={807}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Hair Colour Try-On',
+					subline: 'See the shade before the bleach',
+					voiceoverSrc: 'audio/feature-benefit-reels-3/benefit3-1-hair-colour.mp3',
+					photo1Src: 'images/feature-benefit-reels-3/benefit3-1-photo-1.png',
+					photo1Caption: 'Start with the hair you have',
+					photo2Src: 'images/feature-benefit-reels-3/benefit3-1-photo-2.png',
+					photo2Caption: 'See the shade before you commit',
+					bodyDurationInFrames: 717,
+					accentColor: BRAND.purple,
+				}}
+			/>
+			<Composition
+				id="Benefit3BigChop"
+				component={FeatureBenefitReel}
+				durationInFrames={765}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'The Big Chop',
+					subline: 'Lose the length on screen first',
+					voiceoverSrc: 'audio/feature-benefit-reels-3/benefit3-2-big-chop.mp3',
+					photo1Src: 'images/feature-benefit-reels-3/benefit3-2-photo-1.png',
+					photo1Caption: 'Years of length on the line',
+					photo2Src: 'images/feature-benefit-reels-3/benefit3-2-photo-2.png',
+					photo2Caption: 'See the cut before the scissors',
+					bodyDurationInFrames: 675,
+					accentColor: BRAND.cyan,
+				}}
+			/>
+			<Composition
+				id="Benefit3Bangs"
+				component={FeatureBenefitReel}
+				durationInFrames={740}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Should You Get Bangs?',
+					subline: 'Answer it on your own face',
+					voiceoverSrc: 'audio/feature-benefit-reels-3/benefit3-3-bangs.mp3',
+					photo1Src: 'images/feature-benefit-reels-3/benefit3-3-photo-1.png',
+					photo1Caption: 'Not sure bangs suit you?',
+					photo2Src: 'images/feature-benefit-reels-3/benefit3-3-photo-2.png',
+					photo2Caption: 'Now you know',
+					bodyDurationInFrames: 650,
+					accentColor: BRAND.amber,
+				}}
+			/>
+			<Composition
+				id="Benefit3WeddingLook"
+				component={FeatureBenefitReel}
+				durationInFrames={630}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Your Wedding Look, Trialled',
+					subline: 'No deposit, no appointment',
+					voiceoverSrc: 'audio/feature-benefit-reels-3/benefit3-4-wedding-look.mp3',
+					photo1Src: 'images/feature-benefit-reels-3/benefit3-4-photo-1.png',
+					photo1Caption: 'Your everyday look',
+					photo2Src: 'images/feature-benefit-reels-3/benefit3-4-photo-2.png',
+					photo2Caption: 'Your wedding-day look, trialled',
+					bodyDurationInFrames: 540,
+					accentColor: BRAND.purple,
+				}}
+			/>
+			<Composition
+				id="Benefit3HairLength"
+				component={FeatureBenefitReel}
+				durationInFrames={709}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Short, Medium, or Long?',
+					subline: 'See all three on you',
+					voiceoverSrc: 'audio/feature-benefit-reels-3/benefit3-5-hair-length.mp3',
+					photo1Src: 'images/feature-benefit-reels-3/benefit3-5-photo-1.png',
+					photo1Caption: 'Short on you',
+					photo2Src: 'images/feature-benefit-reels-3/benefit3-5-photo-2.png',
+					photo2Caption: 'Long on you',
+					bodyDurationInFrames: 619,
+					accentColor: BRAND.cyan,
+				}}
+			/>
+			<Composition
+				id="Benefit3FriendsVote"
+				component={FeatureBenefitReel}
+				durationInFrames={728}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={featureBenefitReelSchema}
+				defaultProps={{
+					...featureBenefitReelDefaultProps,
+					headline: 'Let Your Friends Vote',
+					subline: 'Settle it in the group chat',
+					voiceoverSrc: 'audio/feature-benefit-reels-3/benefit3-6-friends-vote.mp3',
+					photo1Src: 'images/feature-benefit-reels-3/benefit3-6-photo-1.png',
+					photo1Caption: 'Generate your looks',
+					photo2Src: 'images/feature-benefit-reels-3/benefit3-6-photo-2.png',
+					photo2Caption: 'Let the group chat decide',
+					bodyDurationInFrames: 638,
+					accentColor: BRAND.amber,
+				}}
+			/>
 			{/* Static 2:3 Pinterest pin images (photo + text overlay), one per
 			    batch-2 video, replacing video pins that Pinterest's spam filter
 			    blocked when hosted on raw.githubusercontent.com. Rendered via
@@ -727,6 +859,107 @@ export const RemotionRoot: React.FC = () => {
 					headline: 'Walk In Knowing',
 					subline: 'See your salon look first',
 					accentColor: BRAND.purple,
+				}}
+			/>
+			{/* Batch 3 pins, same static-image approach as the batch-2 pins above.
+			    Each reuses its reel's photo 2 so the pin and the video read as the
+			    same story. */}
+			<Composition
+				id="Pin3HairColour"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-3/benefit3-1-photo-2.png',
+					headline: 'Hair Colour Try-On',
+					subline: 'See the shade before the bleach',
+					accentColor: BRAND.purple,
+				}}
+			/>
+			<Composition
+				id="Pin3BigChop"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-3/benefit3-2-photo-2.png',
+					headline: 'The Big Chop',
+					subline: 'Lose the length on screen first',
+					accentColor: BRAND.cyan,
+				}}
+			/>
+			<Composition
+				id="Pin3Bangs"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-3/benefit3-3-photo-2.png',
+					headline: 'Should You Get Bangs?',
+					subline: 'Answer it on your own face',
+					accentColor: BRAND.amber,
+				}}
+			/>
+			{/* Shorter headline than the reel's "Your Wedding Look, Trialled" —
+			    the full line overflows the pin's text block at 1000px wide. */}
+			<Composition
+				id="Pin3WeddingLook"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-3/benefit3-4-photo-2.png',
+					headline: 'Your Wedding Look',
+					subline: 'No deposit, no appointment',
+					accentColor: BRAND.purple,
+				}}
+			/>
+			<Composition
+				id="Pin3HairLength"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-3/benefit3-5-photo-2.png',
+					headline: 'Short, Medium, or Long?',
+					subline: 'See all three on you',
+					accentColor: BRAND.cyan,
+				}}
+			/>
+			<Composition
+				id="Pin3FriendsVote"
+				component={PinterestPin}
+				durationInFrames={1}
+				fps={30}
+				width={1000}
+				height={1500}
+				schema={pinterestPinSchema}
+				defaultProps={{
+					...pinterestPinDefaultProps,
+					photoSrc: 'images/feature-benefit-reels-3/benefit3-6-photo-2.png',
+					headline: 'Let Your Friends Vote',
+					subline: 'Settle it in the group chat',
+					accentColor: BRAND.amber,
 				}}
 			/>
 		</>
