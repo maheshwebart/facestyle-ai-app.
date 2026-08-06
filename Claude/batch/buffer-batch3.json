@@ -1,0 +1,39 @@
+{
+	"_comment": "Buffer scheduling manifest. Copy this file for each new batch and change captionDir, mediaBase and slots. Channel and board ids are account-level and stay put. See scripts/buffer_schedule.py.",
+
+	"organizationId": "6a6c30d3bbf87368d3ff1d4b",
+
+	"channels": {
+		"instagram": "6a6c33f04b2d03035f730baf",
+		"youtube": "6a6c32c04b2d03035f730825",
+		"pinterest": "6a6c35814b2d03035f731081"
+	},
+
+	"captionDir": "out/promotional-3",
+	"mediaBase": "https://raw.githubusercontent.com/maheshwebart/facestyle-ai-app./feature-benefit-reels/Claude/out/promotional-3",
+
+	"videoPath": "{slug}.mp4",
+	"pinPath": "pins/{slug}-pin.png",
+
+	"slotTimeUtc": "T04:30:00.000Z",
+	"_slotTimeNote": "10:00 IST == 04:30 UTC. Buffer's dueAt is ISO 8601 in UTC.",
+
+	"youtubeCategoryId": "26",
+	"_youtubeCategoryNote": "26 = Howto & Style, the right home for hair and beauty try-on content.",
+
+	"pinterestBoardServiceId": "1124914881865533996",
+	"_pinterestBoardNote": "Pinterest's own serviceId for the 'AI Beauty' board, NOT Buffer's internal board id — passing the latter fails with 'Board not found'.",
+
+	"pinterestLinkUrl": "https://facestyle.fun",
+	"isAiGenerated": true,
+	"_isAiGeneratedNote": "Truthful: the model photos are Kling-generated, and Instagram and YouTube expect that disclosure.",
+
+	"slots": [
+		{"slug": "hair-colour", "date": "2026-08-11"},
+		{"slug": "bangs", "date": "2026-08-14"},
+		{"slug": "big-chop", "date": "2026-08-18"},
+		{"slug": "hair-length", "date": "2026-08-21"},
+		{"slug": "wedding-look", "date": "2026-08-25"},
+		{"slug": "friends-vote", "date": "2026-08-28"}
+	]
+}
