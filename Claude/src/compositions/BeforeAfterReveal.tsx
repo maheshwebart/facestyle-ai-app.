@@ -1,5 +1,6 @@
 import {
 	AbsoluteFill,
+	Audio,
 	Img,
 	interpolate,
 	OffthreadVideo,
@@ -25,6 +26,8 @@ export const beforeAfterRevealSchema = z.object({
 	afterDurationFrames: z.number(),
 	labelBefore: z.string(),
 	labelAfter: z.string(),
+	voiceoverSrc: z.string(),
+	musicSrc: z.string(),
 	...brandWatermarkSchema.shape,
 	endCardHeadlineLine1: z.string(),
 	endCardHeadlineLine2: z.string(),
@@ -43,6 +46,8 @@ export const beforeAfterRevealDefaultProps: z.infer<
 	afterDurationFrames: 121,
 	labelBefore: 'BEFORE',
 	labelAfter: 'AFTER',
+	voiceoverSrc: 'audio/before-after/glowup.mp3',
+	musicSrc: 'audio/feature-reels/music.mp3',
 	iconSrc: 'brand/facestylefun-icon.png',
 	wordmarkPrimary: 'facestyle',
 	wordmarkAccent: '.fun',
@@ -62,6 +67,12 @@ export const beforeAfterRevealDefaultProps: z.infer<
 // Half-width of the whip transition, in frames, centered on the cut.
 const WHIP_HALF_WIDTH = 4;
 const LABEL_PLATE = `${BRAND.navy}8C`;
+
+// Music sits low under the voiceover during the reveal, then rises once the
+// narration ends and the end card takes over.
+const MUSIC_DUCK_VOLUME = 0.18;
+const MUSIC_FULL_VOLUME = 0.35;
+const MUSIC_DUCK_RAMP_FRAMES = 15;
 
 const Label: React.FC<{
 	text: string;
@@ -201,6 +212,8 @@ export const BeforeAfterReveal: React.FC<
 	afterDurationFrames,
 	labelBefore,
 	labelAfter,
+	voiceoverSrc,
+	musicSrc,
 	iconSrc,
 	wordmarkPrimary,
 	wordmarkAccent,
@@ -220,7 +233,22 @@ export const BeforeAfterReveal: React.FC<
 
 	return (
 		<AbsoluteFill>
+			<Audio
+				src={staticFile(musicSrc)}
+				volume={(frame) => {
+					if (frame < mainDuration) {
+						return MUSIC_DUCK_VOLUME;
+					}
+					return interpolate(
+						frame,
+						[mainDuration, mainDuration + MUSIC_DUCK_RAMP_FRAMES],
+						[MUSIC_DUCK_VOLUME, MUSIC_FULL_VOLUME],
+						{extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
+					);
+				}}
+			/>
 			<Sequence from={0} durationInFrames={mainDuration}>
+				<Audio src={staticFile(voiceoverSrc)} />
 				<Reveal
 					beforeImageSrc={beforeImageSrc}
 					afterVideoSrc={afterVideoSrc}

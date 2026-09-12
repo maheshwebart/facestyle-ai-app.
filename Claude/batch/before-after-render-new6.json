@@ -1,60 +1,72 @@
 [
 	{
 		"compositionId": "BeforeAfterReveal",
-		"outputFile": "out/before-after/pixie-crop.mp4",
+		"outputFile": "out/before-after/batch-2/pixie-crop.mp4",
 		"props": {
 			"beforeImageSrc": "before-after/pixie-crop-before.png",
 			"afterVideoSrc": "before-after/pixie-crop-after-video.mp4",
+			"voiceoverSrc": "audio/before-after/pixie-crop.mp3",
+			"musicSrc": "audio/feature-reels/music.mp3",
 			"endCardHeadlineLine1": "Big Chop",
 			"endCardHeadlineLine2": "Energy."
 		}
 	},
 	{
 		"compositionId": "BeforeAfterReveal",
-		"outputFile": "out/before-after/copper-balayage.mp4",
+		"outputFile": "out/before-after/batch-2/copper-balayage.mp4",
 		"props": {
 			"beforeImageSrc": "before-after/copper-balayage-before.png",
 			"afterVideoSrc": "before-after/copper-balayage-after-video.mp4",
+			"voiceoverSrc": "audio/before-after/copper-balayage.mp3",
+			"musicSrc": "audio/feature-reels/music.mp3",
 			"endCardHeadlineLine1": "New Hair.",
 			"endCardHeadlineLine2": "New Me."
 		}
 	},
 	{
 		"compositionId": "BeforeAfterReveal",
-		"outputFile": "out/before-after/sleek-blowout.mp4",
+		"outputFile": "out/before-after/batch-2/sleek-blowout.mp4",
 		"props": {
 			"beforeImageSrc": "before-after/sleek-blowout-before.png",
 			"afterVideoSrc": "before-after/sleek-blowout-after-video.mp4",
+			"voiceoverSrc": "audio/before-after/sleek-blowout.mp3",
+			"musicSrc": "audio/feature-reels/music.mp3",
 			"endCardHeadlineLine1": "Smooth",
 			"endCardHeadlineLine2": "Operator."
 		}
 	},
 	{
 		"compositionId": "BeforeAfterReveal",
-		"outputFile": "out/before-after/glam-makeover.mp4",
+		"outputFile": "out/before-after/batch-2/glam-makeover.mp4",
 		"props": {
 			"beforeImageSrc": "before-after/glam-makeover-before.png",
 			"afterVideoSrc": "before-after/glam-makeover-after-video.mp4",
+			"voiceoverSrc": "audio/before-after/glam-makeover.mp3",
+			"musicSrc": "audio/feature-reels/music.mp3",
 			"endCardHeadlineLine1": "10 Minutes",
 			"endCardHeadlineLine2": "Later..."
 		}
 	},
 	{
 		"compositionId": "BeforeAfterReveal",
-		"outputFile": "out/before-after/beard-fade.mp4",
+		"outputFile": "out/before-after/batch-2/beard-fade.mp4",
 		"props": {
 			"beforeImageSrc": "before-after/beard-fade-before.png",
 			"afterVideoSrc": "before-after/beard-fade-after-video.mp4",
+			"voiceoverSrc": "audio/before-after/beard-fade.mp3",
+			"musicSrc": "audio/feature-reels/music.mp3",
 			"endCardHeadlineLine1": "Cleaned Up",
 			"endCardHeadlineLine2": "Nice."
 		}
 	},
 	{
 		"compositionId": "BeforeAfterReveal",
-		"outputFile": "out/before-after/updo-glam.mp4",
+		"outputFile": "out/before-after/batch-2/updo-glam.mp4",
 		"props": {
 			"beforeImageSrc": "before-after/updo-glam-before.png",
 			"afterVideoSrc": "before-after/updo-glam-after-video.mp4",
+			"voiceoverSrc": "audio/before-after/updo-glam.mp3",
+			"musicSrc": "audio/feature-reels/music.mp3",
 			"endCardHeadlineLine1": "Ready In",
 			"endCardHeadlineLine2": "Seconds."
 		}
